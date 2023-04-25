@@ -11,7 +11,7 @@ public class ToyFactory {
             Toy toy = new Toy();
             toy.setId(i);
             toy.setName("Toy " + String.valueOf(i + 1));
-            toy.setDropChance(random.nextInt(1, 100));
+            toy.setWeight(random.nextDouble(1, 10));
             toy.setPrice(random.nextInt(500, 3000));
             toyList.add(toy);
         }
