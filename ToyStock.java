@@ -30,7 +30,7 @@ public class ToyStock {
         }
 
         Random rnd = new Random();
-        double randomNumber = rnd.nextDouble() * totalWeight;
+        double randomNumber = rnd.nextDouble(1, totalWeight);
 
         Toy prizeToy = null;
         for (Toy toy : toys) {
@@ -49,12 +49,16 @@ public class ToyStock {
     }
 
     public void getPrizeToy() throws IOException {
+
+        FileWriter writer = new FileWriter("prize_toys.txt", true);
+
         if (prizeToys.size() > 0) {
             Toy prizeToy = prizeToys.remove(0);
+            writer.write("Выпала игрушка! id= "+ prizeToy.getId() + "," + "Название: " + prizeToy.getName() + "\n");
 
-            FileWriter writer = new FileWriter("prize_toys.txt", true);
-            writer.write(prizeToy.getId() + "," + prizeToy.getName() + "\n");
-            writer.close();
+        } else {
+            writer.write("В розыгрыше не выпала призовая игрушка" + "\n");
         }
+        writer.close();
     }
 }

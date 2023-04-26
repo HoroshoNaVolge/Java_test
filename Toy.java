@@ -1,5 +1,3 @@
-import java.text.DecimalFormat;
-
 public class Toy {
 
     protected int id;
